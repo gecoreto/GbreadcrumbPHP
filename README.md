@@ -5,7 +5,7 @@ Clase para modelar un breadcrumb.
 
 ## Instalación 
 
--Incluye la clase:
+1-Incluye la clase:
 
 ` require 'Gbreadcrumb.php'; ` 
 
