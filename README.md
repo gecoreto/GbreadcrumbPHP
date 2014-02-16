@@ -27,7 +27,7 @@ echo $Breadcrumb->printBreadCrumb("", true);
 ?>
 ```
 
-Resultado
+## Resultado
 
 =========
 ` Inicio » Listado de productos » Celular ` 
