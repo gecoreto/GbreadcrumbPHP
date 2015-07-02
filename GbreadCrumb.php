@@ -17,6 +17,28 @@ class GBreadCrumb {
     private $breadcrumb = array();
 
     /**
+     * Clase CSS del contenedor del bradcrumb.
+     * @var string 
+     */
+    public $class;
+
+    /**
+     * Etiqueta html contenedora del bradcrumb
+     * @var string
+     */
+    public $contenedor;
+
+    /**
+     * 
+     * @param string $class Clase CSS del contenedor del bradcrumb.
+     * @param string $contenedor Etiqueta html contenedora del bradcrumb
+     */
+    public function __construct($class = "breadcrumb", $contenedor = 'ul') {
+        $this->class = $class;
+        $this->contenedor = $contenedor;
+    }
+
+    /**
      * Agrega un nuevo link al breadcrumb
      * @param string $label texto del link
      * @param string $link url del link
@@ -38,10 +60,8 @@ class GBreadCrumb {
      * @return string breadcrumb
      */
     public function printBreadCrumb($bracket = "»", $link = false) {
-
         $total = count($this->breadcrumb);
-        $salida = "<ol class=\"breadcrumb\" >";
-
+        $salida = "<" . $this->contenedor . " class='" . $this->class . "' >";
         if ($total == 1) {
             return $salida .= "<li>" . $this->breadcrumb[0]['label'] . "</li></ol>";
         }
@@ -53,7 +73,7 @@ class GBreadCrumb {
             else
                 $salida .= "<li>" . $items['label'] . "</li> $bracket ";
         }
-        return $salida . "</ol>";
+        return $salida . "</" . $this->contenedor . ">";
     }
 
     /**
